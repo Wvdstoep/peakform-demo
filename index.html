@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peak Form — Personal Training in Warsaw</title>
+<meta name="description" content="1-on-1 personal training and small-group coaching. First session free. Book online in 30 seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1116; --muted:#5b6472; --line:#e7e9ee; --bg:#ffffff; --soft:#f6f7f9;
+    --accent:#ff5a2b; --accent-ink:#c8340f; --ring:rgba(255,90,43,.28);
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,Inter,sans-serif;line-height:1.1;letter-spacing:-.02em;margin:0 0 .4em}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .btn{display:inline-flex;align-items:center;gap:.5em;background:var(--accent);color:#fff;font-weight:600;
+    padding:14px 22px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;font-size:1rem;transition:transform .12s ease, box-shadow .12s ease}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px var(--ring)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+  /* nav */
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{font-family:Sora;font-weight:800;font-size:1.15rem;letter-spacing:-.03em}
+  .logo span{color:var(--accent)}
+  .navlinks{display:flex;gap:26px;align-items:center}
+  .navlinks a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+  .navlinks a:hover{color:var(--ink)}
+  .navlinks .btn{color:#fff}
+  @media(max-width:760px){.navlinks a:not(.btn){display:none}}
+  /* hero */
+  .hero{padding:76px 0 64px;background:
+    radial-gradient(1200px 500px at 80% -10%, #fff2ec 0%, transparent 60%),
+    linear-gradient(#fff,#fff)}
+  .hero .eyebrow{color:var(--accent-ink);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;margin-bottom:14px}
+  .hero h1{font-size:clamp(2.3rem,6vw,3.9rem);font-weight:800;max-width:14ch}
+  .hero p{font-size:1.2rem;color:var(--muted);max-width:52ch;margin:18px 0 28px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .trust{margin-top:26px;color:var(--muted);font-size:.92rem;display:flex;gap:8px;align-items:center}
+  .stars{color:var(--accent);letter-spacing:2px}
+  /* sections */
+  section{padding:66px 0}
+  .kicker{color:var(--accent-ink);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:.76rem}
+  h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:700}
+  .lead{color:var(--muted);max-width:56ch;font-size:1.08rem}
+  .grid{display:grid;gap:18px;margin-top:34px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g2{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--bg)}
+  .card h3{font-size:1.2rem}
+  .price{background:var(--soft)}
+  .price .amt{font-family:Sora;font-weight:800;font-size:2.2rem;margin:.2em 0}
+  .price .amt small{font-size:.9rem;color:var(--muted);font-weight:500}
+  .price ul{list-style:none;padding:0;margin:16px 0 22px}
+  .price li{padding:7px 0 7px 26px;position:relative;color:#3a424e}
+  .price li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+  .featured{border:2px solid var(--accent);position:relative}
+  .featured .tag{position:absolute;top:-13px;left:26px;background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:999px;letter-spacing:.06em}
+  /* about */
+  .about{background:var(--soft);border-radius:26px;padding:44px;display:grid;grid-template-columns:1.2fr 1fr;gap:34px;align-items:center}
+  @media(max-width:820px){.about{grid-template-columns:1fr;padding:30px}}
+  .statline{display:flex;gap:34px;margin-top:22px;flex-wrap:wrap}
+  .stat b{font-family:Sora;font-size:1.8rem;display:block}
+  .stat span{color:var(--muted);font-size:.9rem}
+  .portrait{aspect-ratio:4/5;border-radius:18px;background:
+    linear-gradient(135deg,#ffb59c,#ff5a2b 70%);display:flex;align-items:flex-end;padding:20px;color:#fff;font-family:Sora;font-weight:700;font-size:1.1rem}
+  /* testimonials */
+  .quote{border-left:3px solid var(--accent);padding:6px 0 6px 20px;margin:0;font-size:1.05rem}
+  .who{margin-top:12px;color:var(--muted);font-size:.9rem}
+  /* booking */
+  .book{background:var(--ink);color:#fff;border-radius:26px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  @media(max-width:820px){.book{grid-template-columns:1fr;padding:28px}}
+  .book h2{color:#fff}
+  .book p{color:#aeb6c2}
+  form{display:grid;gap:12px}
+  label{font-size:.85rem;color:#cdd3dc;font-weight:500}
+  input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #333b48;background:#161b22;color:#fff;font:inherit}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:transparent}
+  .ok{display:none;background:#12351f;border:1px solid #1f6b3a;color:#8ef0b0;padding:14px;border-radius:12px;font-weight:500}
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.9rem}
+  .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .demo-note{background:#fff6e9;border-bottom:1px solid #f0dcae;color:#7a5b17;font-size:.82rem;text-align:center;padding:7px 12px}
+</style>
+</head>
+<body>
+<div class="demo-note">Demo site — an example of a business site built and deployed for a client. Your business, your branding, your domain.</div>
+<header>
+  <div class="wrap"><nav>
+    <div class="logo">PEAK<span>FORM</span></div>
+    <div class="navlinks">
+      <a href="#services">Training</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">Coach</a>
+      <a href="#book" class="btn">Book free session</a>
+    </div>
+  </nav></div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Personal training · Warsaw + online</div>
+    <h1>Get stronger, without guessing.</h1>
+    <p>1-on-1 coaching built around your body, your schedule and your goals — with a plan that actually changes week to week. Your first session is on me.</p>
+    <div class="cta-row">
+      <a href="#book" class="btn">Book your free session</a>
+      <a href="#pricing" class="btn ghost">See pricing</a>
+    </div>
+    <div class="trust"><span class="stars">★★★★★</span> Rated 5.0 by 120+ clients</div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="kicker">What you get</div>
+    <h2>Coaching that fits your life</h2>
+    <p class="lead">No lock-in packages you don't need. Pick the way you want to train — everything is tailored from your first assessment.</p>
+    <div class="grid g3">
+      <div class="card"><h3>1-on-1 training</h3><p>Private sessions in-studio, fully programmed to your goals with hands-on form coaching.</p></div>
+      <div class="card"><h3>Online coaching</h3><p>Your plan, check-ins and video form reviews in an app — train anywhere, stay accountable.</p></div>
+      <div class="card"><h3>Small group</h3><p>Train with 2–4 others at a lower price, same personal attention, more fun.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="kicker">Pricing</div>
+    <h2>Simple, honest plans</h2>
+    <div class="grid g3">
+      <div class="card price"><h3>Online</h3><div class="amt">€79<small>/mo</small></div>
+        <ul><li>Custom training plan</li><li>Weekly check-ins</li><li>Form video reviews</li><li>Chat support</li></ul>
+        <a href="#book" class="btn ghost">Start online</a></div>
+      <div class="card price featured"><span class="tag">MOST POPULAR</span><h3>1-on-1</h3><div class="amt">€45<small>/session</small></div>
+        <ul><li>Private studio sessions</li><li>Hands-on form coaching</li><li>Full program + nutrition</li><li>Free first session</li></ul>
+        <a href="#book" class="btn">Book free session</a></div>
+      <div class="card price"><h3>Small group</h3><div class="amt">€25<small>/session</small></div>
+        <ul><li>2–4 people</li><li>Programmed sessions</li><li>Community + accountability</li><li>Flexible schedule</li></ul>
+        <a href="#book" class="btn ghost">Join a group</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div>
+        <div class="kicker">Your coach</div>
+        <h2>Hi, I'm Alex.</h2>
+        <p class="lead">Ten years coaching everyday people — not athletes — to feel strong, move without pain and actually enjoy training. I build plans you can stick to, and I adjust them as your life changes.</p>
+        <div class="statline">
+          <div class="stat"><b>120+</b><span>clients coached</span></div>
+          <div class="stat"><b>10 yrs</b><span>experience</span></div>
+          <div class="stat"><b>5.0★</b><span>average rating</span></div>
+        </div>
+      </div>
+      <div class="portrait">Alex Nowak<br>Certified Personal Trainer</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Clients</div>
+    <h2>What people say</h2>
+    <div class="grid g3">
+      <div class="card"><blockquote class="quote">Lost 9kg and I'm lifting more than I ever have. Alex made it feel doable.</blockquote><div class="who">— Marta K.</div></div>
+      <div class="card"><blockquote class="quote">The online plan fit around two kids and shift work. First coach I actually stuck with.</blockquote><div class="who">— Tomek W.</div></div>
+      <div class="card"><blockquote class="quote">My back pain is gone and I feel 10 years younger. Worth every session.</blockquote><div class="who">— Daniel R.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap">
+    <div class="book">
+      <div>
+        <div class="kicker" style="color:var(--accent)">Free first session</div>
+        <h2>Book in 30 seconds</h2>
+        <p>Tell me your goal and when suits you. I'll reply the same day to confirm your free session — no card, no commitment.</p>
+        <p style="margin-top:18px;color:#8b93a0;font-size:.9rem">Or message on WhatsApp / Instagram — links in the footer.</p>
+      </div>
+      <div>
+        <form id="bf" onsubmit="event.preventDefault();document.getElementById('bf').style.display='none';document.getElementById('done').style.display='block';">
+          <div><label>Name</label><input required placeholder="Your name"></div>
+          <div><label>Email or phone</label><input required placeholder="So I can confirm"></div>
+          <div><label>Your goal</label>
+            <select><option>Lose weight</option><option>Build strength</option><option>Feel better / less pain</option><option>Train for an event</option></select></div>
+          <div><label>Preferred time</label><input placeholder="e.g. weekday evenings"></div>
+          <button class="btn" type="submit" style="width:100%;justify-content:center;margin-top:6px">Claim my free session</button>
+        </form>
+        <div class="ok" id="done">✓ Thanks! Your request is in — you'll get a confirmation the same day. <br><small style="color:#8ef0b0">(Demo form — on a live site this emails the owner instantly.)</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div><b>PEAKFORM</b> · Personal Training · Warsaw</div>
+    <div>hello@peakform.example · Instagram · WhatsApp</div>
+  </div>
+</footer>
+</body>
+</html>
